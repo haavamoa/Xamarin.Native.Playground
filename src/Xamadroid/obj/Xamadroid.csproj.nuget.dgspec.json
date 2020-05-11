@@ -1,0 +1,62 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\code\\Xamarin.Native.Playground\\src\\Xamadroid\\Xamadroid.csproj": {}
+  },
+  "projects": {
+    "C:\\code\\Xamarin.Native.Playground\\src\\Xamadroid\\Xamadroid.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\code\\Xamarin.Native.Playground\\src\\Xamadroid\\Xamadroid.csproj",
+        "projectName": "Xamadroid",
+        "projectPath": "C:\\code\\Xamarin.Native.Playground\\src\\Xamadroid\\Xamadroid.csproj",
+        "packagesPath": "C:\\Users\\hmo\\.nuget\\packages\\",
+        "outputPath": "C:\\code\\Xamarin.Native.Playground\\src\\Xamadroid\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\hmo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "monoandroid90"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://dipscloud.pkgs.visualstudio.com/_packaging/dips-mob/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "monoandroid90": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "monoandroid90": {
+          "dependencies": {
+            "Xamarin.Android.Support.Core.Utils": {
+              "target": "Package",
+              "version": "[28.0.0.3, )"
+            },
+            "Xamarin.Android.Support.CustomTabs": {
+              "target": "Package",
+              "version": "[28.0.0.3, )"
+            },
+            "Xamarin.Android.Support.Design": {
+              "target": "Package",
+              "version": "[28.0.0.3, )"
+            },
+            "Xamarin.Essentials": {
+              "target": "Package",
+              "version": "[1.3.1, )"
+            }
+          }
+        }
+      }
+    }
+  }
+}
