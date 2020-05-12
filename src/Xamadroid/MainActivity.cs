@@ -1,5 +1,6 @@
 ﻿using System;
 using Android.App;
+using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.Design.Widget;
@@ -17,44 +18,32 @@ namespace Xamadroid
         {
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
-            SetContentView(Resource.Layout.activity_main);
 
-            Android.Support.V7.Widget.Toolbar toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
-            SetSupportActionBar(toolbar);
+            var coordinatorLayout = new CoordinatorLayout(this);
+            coordinatorLayout.LayoutParameters = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent);
 
-            FloatingActionButton fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
-            fab.Click += FabOnClick;
+            coordinatorLayout.AddView(CreateFab(this));
+
+            SetContentView(coordinatorLayout);
         }
 
-        public override bool OnCreateOptionsMenu(IMenu menu)
+        private FloatingActionButton CreateFab(MainActivity mainActivity)
         {
-            MenuInflater.Inflate(Resource.Menu.menu_main, menu);
-            return true;
+            var fab = new FloatingActionButton(mainActivity);
+            var layoutParameters = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WrapContent, ViewGroup.LayoutParams.WrapContent);
+            layoutParameters.SetMargins(20, 20, 20, 20);
+            fab.LayoutParameters = layoutParameters;
+            fab.SetOutlineSpotShadowColor(Color.Black);
+            fab.SetOutlineAmbientShadowColor(Color.Black);
+            fab.Click += Fab_Click;
+            return fab;
+
         }
 
-        public override bool OnOptionsItemSelected(IMenuItem item)
+        private void Fab_Click(object sender, EventArgs e)
         {
-            int id = item.ItemId;
-            if (id == Resource.Id.action_settings)
-            {
-                return true;
-            }
 
-            return base.OnOptionsItemSelected(item);
         }
-
-        private void FabOnClick(object sender, EventArgs eventArgs)
-        {
-            View view = (View) sender;
-            Snackbar.Make(view, "Replace with your own action", Snackbar.LengthLong)
-                .SetAction("Action", (Android.Views.View.IOnClickListener)null).Show();
-        }
-        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
-        {
-            Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-
-            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-        }
-	}
+    }
 }
 
